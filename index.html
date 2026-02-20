@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dave Cera - Senior .NET Full Stack Developer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Senior .NET Full Stack Software Developer, Software Architect, Tech Analyst expanding into specialized AI/ML for healthcare, financial, and cybersecurity."
+  />
+  <style>
+    :root {
+      --bg: #0d1117;
+      --bg-soft: #161b22;
+      --border-soft: #30363d;
+      --fg: #c9d1d9;
+      --fg-muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-soft: rgba(88, 166, 255, 0.12);
+      --danger: #f85149;
+      --radius-lg: 12px;
+      --radius-md: 8px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.45);
+      --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+        "Liberation Mono", "Courier New", monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: var(--font-body);
+      color: var(--fg);
+      background: radial-gradient(circle at top, #1a2333 0, #05070a 50%, #000 100%);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 3rem 1rem;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 960px;
+      background: linear-gradient(145deg, #0d1117 0, #05070a 40%, #111827 100%);
+      border-radius: 24px;
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: var(--shadow-soft);
+      padding: 2.5rem 2.25rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at top left, rgba(59, 130, 246, 0.12) 0, transparent 55%),
+        radial-gradient(circle at top right, rgba(236, 72, 153, 0.12) 0, transparent 55%);
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    .page-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .header {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.75rem;
+      align-items: center;
+      margin-bottom: 2.25rem;
+    }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 999px;
+      border: 2px solid rgba(148, 163, 184, 0.65);
+      overflow: hidden;
+      background: radial-gradient(circle at 30% 20%, #4f46e5, #0f172a);
+      position: relative;
+    }
+
+    .avatar::after {
+      content: "DC";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.9rem;
+      color: #e5e7eb;
+      text-shadow: 0 4px 20px rgba(0, 0, 0, 0.65);
+    }
+
+    .header-main h1 {
+      margin: 0 0 0.4rem;
+      font-size: 2rem;
+      letter-spacing: 0.02em;
+    }
+
+    .header-main h2 {
+      margin: 0 0 0.6rem;
+      font-size: 0.98rem;
+      font-weight: 500;
+      color: var(--fg-muted);
+      max-width: 40rem;
+    }
+
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.82rem;
+      color: var(--fg-muted);
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .pill-accent {
+      border-color: rgba(56, 189, 248, 0.75);
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.12), rgba(59, 130, 246, 0.12));
+      color: #e0f2fe;
+    }
+
+    .tagline {
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(148, 163, 184, 0.9);
+      margin-bottom: 1.5rem;
+    }
+
+    .section {
+      margin-bottom: 1.9rem;
+    }
+
+    .section:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.85rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #e5e7eb;
+    }
+
+    .section-title span {
+      display: inline-flex;
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      background: rgba(37, 99, 235, 0.16);
+      color: #93c5fd;
+    }
+
+    .card {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 1.35rem 1.4rem;
+    }
+
+    .card + .card {
+      margin-top: 0.75rem;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 2fr);
+      gap: 1.4rem;
+    }
+
+    .subheading {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--fg-muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .links-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.2rem;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.78rem;
+      color: var(--fg);
+      text-decoration: none;
+      background: rgba(15, 23, 42, 0.9);
+      transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+    }
+
+    .chip:hover {
+      border-color: var(--accent);
+      background: rgba(15, 23, 42, 1);
+      transform: translateY(-1px);
+    }
+
+    .about-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      font-size: 0.9rem;
+      color: var(--fg-muted);
+    }
+
+    .about-list li + li {
+      margin-top: 0.35rem;
+    }
+
+    .about-label {
+      color: var(--fg);
+      font-weight: 500;
+      margin-right: 0.25rem;
+    }
+
+    .stack-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+
+    .stack-item {
+      font-size: 0.8rem;
+      padding: 0.28rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--fg);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+    }
+
+    .stack-item:hover {
+      border-color: var(--accent);
+      background: rgba(15, 23, 42, 1);
+      transform: translateY(-1px);
+    }
+
+    .stack-item span {
+      font-size: 0.75rem;
+      color: var(--fg-muted);
+    }
+
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: rgba(15, 23, 42, 0.95);
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.82rem;
+      transition: border-color 0.15s ease, background 0.15s ease, transform 0.1s ease;
+    }
+
+    .social-link:hover {
+      border-color: var(--accent);
+      background: rgba(15, 23, 42, 1);
+      transform: translateY(-1px);
+    }
+
+    .social-badge {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      color: var(--fg-muted);
+    }
+
+    .note {
+      margin-top: 1.6rem;
+      font-size: 0.78rem;
+      color: var(--fg-muted);
+      font-family: var(--font-mono);
+      opacity: 0.85;
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding: 1.5rem 1rem;
+      }
+
+      .page {
+        padding: 1.8rem 1.4rem;
+        border-radius: 18px;
+      }
+
+      .header {
+        grid-template-columns: 1fr;
+        text-align: left;
+      }
+
+      .avatar {
+        width: 80px;
+        height: 80px;
+      }
+
+      .header-main h1 {
+        font-size: 1.6rem;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="page-inner">
+      <header class="header">
+        <div class="avatar" aria-hidden="true"></div>
+        <div class="header-main">
+          <div class="tagline">Hi, my name is</div>
+          <h1>Dave Cera</h1>
+          <h2>
+            Senior .NET Full Stack Software Developer · Software Architect · Tech Analyst,
+            expanding into specialized AI/ML for healthcare, financial, and cybersecurity.
+          </h2>
+          <div class="header-meta">
+            <span class="pill">Downingtown, PA · Working from home</span>
+            <span class="pill pill-accent">Open to senior engineering & architecture roles</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="section">
+        <h3 class="section-title">
+          <span></span>
+          Links &amp; about me
+        </h3>
+        <div class="card">
+          <div class="grid-2">
+            <div>
+              <div class="subheading">Links</div>
+              <div class="links-list">
+                <a class="chip" href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank" rel="noreferrer">C# docs</a>
+                <a class="chip" href="https://dotnet.microsoft.com/en-us/" target="_blank" rel="noreferrer">.NET</a>
+                <a class="chip" href="https://azure.microsoft.com/en-us/" target="_blank" rel="noreferrer">Azure</a>
+                <a class="chip" href="https://angular.dev/" target="_blank" rel="noreferrer">Angular</a>
+                <a class="chip" href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer">TypeScript</a>
+                <a class="chip" href="https://www.microsoft.com/en-us/sql-server/" target="_blank" rel="noreferrer">SQL Server</a>
+              </div>
+            </div>
+
+            <div>
+              <div class="subheading">About me</div>
+              <ul class="about-list">
+                <li><span class="about-label">Interests:</span>Azure, .NET, DevOps, and AI/ML.</li>
+                <li>
+                  <span class="about-label">Currently building:</span>
+                  WMS app using MudBlazor, FastEndpoints, CQRS, EF, and PostgreSQL.
+                </li>
+                <li><span class="about-label">Learning:</span>Svelte and NLP.</li>
+                <li><span class="about-label">Ask me about:</span>Software development and architecture.</li>
+                <li>
+                  <span class="about-label">Reach me:</span>
+                  <a href="https://www.linkedin.com/in/david-cera/" target="_blank" rel="noreferrer">LinkedIn</a>.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h3 class="section-title">
+          <span></span>
+          🧰 Tech stack experience
+        </h3>
+        <div class="card">
+          <div class="stack-grid">
+            <a class="stack-item" href="https://angular.dev/" target="_blank" rel="noreferrer">Angular<span>frontend</span></a>
+            <a class="stack-item" href="https://azure.microsoft.com/" target="_blank" rel="noreferrer">Azure<span>cloud</span></a>
+            <a class="stack-item" href="https://getbootstrap.com/" target="_blank" rel="noreferrer">Bootstrap</a>
+            <a class="stack-item" href="https://learn.microsoft.com/dotnet/csharp/" target="_blank" rel="noreferrer">C#</a>
+            <a class="stack-item" href="https://isocpp.org/" target="_blank" rel="noreferrer">C++</a>
+            <a class="stack-item" href="https://codepen.io/" target="_blank" rel="noreferrer">CodePen</a>
+            <a class="stack-item" href="https://developer.mozilla.org/docs/Web/CSS/" target="_blank" rel="noreferrer">CSS</a>
+            <a class="stack-item" href="https://www.docker.com/" target="_blank" rel="noreferrer">Docker</a>
+            <a class="stack-item" href="https://dotnet.microsoft.com/" target="_blank" rel="noreferrer">.NET</a>
+            <a class="stack-item" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="stack-item" href="https://about.gitlab.com/" target="_blank" rel="noreferrer">GitLab</a>
+            <a class="stack-item" href="https://developer.mozilla.org/docs/Web/HTML/" target="_blank" rel="noreferrer">HTML</a>
+            <a class="stack-item" href="https://en.wikipedia.org/wiki/Artificial_intelligence/" target="_blank" rel="noreferrer">AI &amp; ML</a>
+            <a class="stack-item" href="https://developer.mozilla.org/docs/Web/JavaScript/" target="_blank" rel="noreferrer">JavaScript</a>
+            <a class="stack-item" href="https://www.jenkins.io/" target="_blank" rel="noreferrer">Jenkins</a>
+            <a class="stack-item" href="https://jquery.com/" target="_blank" rel="noreferrer">jQuery</a>
+            <a class="stack-item" href="https://kubernetes.io/" target="_blank" rel="noreferrer">Kubernetes</a>
+            <a class="stack-item" href="https://nodejs.org/" target="_blank" rel="noreferrer">Node.js</a>
+            <a class="stack-item" href="https://www.npmjs.com/" target="_blank" rel="noreferrer">npm</a>
+            <a class="stack-item" href="https://www.postgresql.org/" target="_blank" rel="noreferrer">PostgreSQL</a>
+            <a class="stack-item" href="https://learn.microsoft.com/powershell/" target="_blank" rel="noreferrer">PowerShell</a>
+            <a class="stack-item" href="https://react.dev/" target="_blank" rel="noreferrer">React</a>
+            <a class="stack-item" href="https://redis.io/" target="_blank" rel="noreferrer">Redis</a>
+            <a class="stack-item" href="https://en.wikipedia.org/wiki/Regular_expression/" target="_blank" rel="noreferrer">Regex</a>
+            <a class="stack-item" href="https://www.selenium.dev/" target="_blank" rel="noreferrer">Selenium</a>
+            <a class="stack-item" href="https://svelte.dev/" target="_blank" rel="noreferrer">Svelte</a>
+            <a class="stack-item" href="https://developer.mozilla.org/docs/Web/SVG/" target="_blank" rel="noreferrer">SVG</a>
+            <a class="stack-item" href="https://www.terraform.io/" target="_blank" rel="noreferrer">Terraform</a>
+            <a class="stack-item" href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer">TypeScript</a>
+            <a class="stack-item" href="https://visualstudio.microsoft.com/" target="_blank" rel="noreferrer">Visual Studio</a>
+            <a class="stack-item" href="https://vuejs.org/" target="_blank" rel="noreferrer">Vue.js</a>
+            <a class="stack-item" href="https://webassembly.org/" target="_blank" rel="noreferrer">WebAssembly</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h3 class="section-title">
+          <span></span>
+          🌐 Connect with me
+        </h3>
+        <div class="card">
+          <div class="social-row">
+            <a class="social-link" href="https://github.com/davecera" target="_blank" rel="noreferrer">
+              <span class="social-badge">GitHub</span>
+              <span>@davecera</span>
+            </a>
+            <a class="social-link" href="https://www.linkedin.com/in/david-cera/" target="_blank" rel="noreferrer">
+              <span class="social-badge">LinkedIn</span>
+              <span>/in/david-cera</span>
+            </a>
+            <a class="social-link" href="https://x.com/ogcera" target="_blank" rel="noreferrer">
+              <span class="social-badge">X</span>
+              <span>@ogcera</span>
+            </a>
+            <a class="social-link" href="https://stackoverflow.com/users/31429079" target="_blank" rel="noreferrer">
+              <span class="social-badge">Stack Overflow</span>
+              <span>#31429079</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <p class="note">        
+      </p>
+    </div>
+  </main>
+</body>
+</html>
