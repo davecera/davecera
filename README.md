@@ -1,5 +1,6 @@
 ### Hi my name is Dave Cera. 
-#### Senior .Net Full Stack Software Developer | Software Architect | Tech Analyst | Expanding into specialized AI/ML for healthcare, financial and cybersecurity
+#### Senior .Net Full Stack Software Developer | Software Architect | Tech Analyst 
+- Expanding into specialized AI/ML for healthcare, financial and cybersecurity
 
 ---
 
@@ -25,3 +26,6 @@ Links           |  About Me
   <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me a Coffee" width="200"/>
 </a>
 -->
+
+
+
